@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <span>Consulta de Festivos</span>
+</mat-toolbar>
+
+<div style="margin: 20px;">
+  <mat-form-field>
+    <mat-label>Selecciona una fecha</mat-label>
+    <input matInput type="date" [(ngModel)]="fecha">
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="verificarFestivo()">Verificar</button>
+  <div *ngIf="esFestivo !== null">
+    <p>{{ fecha }} {{ esFestivo ? 'es' : 'no es' }} festivo.</p>
+  </div>
+</div>
+
+<div style="margin: 20px;">
+  <mat-form-field>
+    <mat-label>Año</mat-label>
+    <input matInput type="number" [(ngModel)]="anio">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="listarFestivos()">Listar Festivos</button>
+</div>
+
+<div style="margin: 20px;" *ngIf="festivos.length > 0">
+  <ngx-datatable 
+    class="material striped"
+    [rows]="festivos"
+    [columns]="[{ name: 'Fecha', prop: 'fecha' }, { name: 'Descripción', prop: 'descripcion' }]"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="'auto'">
+  </ngx-datatable>
+</div>

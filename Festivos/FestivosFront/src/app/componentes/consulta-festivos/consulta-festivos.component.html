@@ -1,0 +1,9 @@
+<div>
+<h2>Consulta de Festivos</h2>
+<label>Fecha: <input [(ngModel)]="fecha" type="date"></label>
+<button (click)="consultarSiEsFestivo()">Verificar</button>
+<p>{{resultado}}</p>
+<label>Año: <input [(ngModel)]="anio" type="text"></label>
+<button (click)="consultarFestivosPorAnio()">Consultar Año</button>
+<ul><li *ngFor="let festivo of festivos">{{festivo.fecha}} - {{festivo.descripcion}}</li></ul>
+</div>

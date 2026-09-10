@@ -1,0 +1,1 @@
+export interface DiaFestivo { fecha: string; descripcion: string; }
